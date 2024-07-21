@@ -1,0 +1,90 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+import time
+
+# ChromeDriverの設定
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+
+try:
+    # ① Googleドキュメントに自動でアクセス
+    google_docs_url = 'https://docs.google.com/document/d/1dS2hC6riGf-Q8RztqdCssLk7ibVRtcHkSHI0WkI2Sdo/edit'
+    driver.get(google_docs_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ② Googleマップに自動でアクセス（新しいタブで開く）
+    google_maps_url = 'https://www.google.com/maps?authuser=0'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[1])  # 新しいタブに切り替え
+    driver.get(google_maps_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ③ GitHubにアクセス（さらに新しいタブで開く）
+    github_url = 'https://github.com/'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[2])  # 新しいタブに切り替え
+    driver.get(github_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ④ Googleドライブフォルダに自動でアクセス（さらに新しいタブで開く）
+    google_drive_url = 'https://drive.google.com/drive/folders/1L0eyL72zUKlpbtOjo5_jvad7bZDjP0qC'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[3])  # 新しいタブに切り替え
+    driver.get(google_drive_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ⑤ Web電卓に自動でアクセス（さらに新しいタブで開く）
+    web_calculator_url = 'https://www.webdentaku.com/'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[4])  # 新しいタブに切り替え
+    driver.get(web_calculator_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ⑥ タイマーに自動でアクセス（さらに新しいタブで開く）
+    timer_url = 'https://timer.fuuu.work/'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[5])  # 新しいタブに切り替え
+    driver.get(timer_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ⑦ メモ帳に自動でアクセス（さらに新しいタブで開く）
+    memo_url = 'http://www.drpartners.jp/tools/browser-memocho.htm'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[6])  # 新しいタブに切り替え
+    driver.get(memo_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ⑧ GPTに自動でアクセス（さらに新しいタブで開く）
+    gpt_url = 'https://chatgpt.com/'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[7])  # 新しいタブに切り替え
+    driver.get(gpt_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ⑨ DeepLに自動でアクセス（さらに新しいタブで開く）
+    deepl_url = 'https://www.deepl.com/ja/translator'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[8])  # 新しいタブに切り替え
+    driver.get(deepl_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ⑩ Qiitaに自動でアクセス（さらに新しいタブで開く）
+    qiita_url = 'https://qiita.com/'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[9])  # 新しいタブに切り替え
+    driver.get(qiita_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ⑪ レオパレスに自動でアクセス（さらに新しいタブで開く）
+    leopalace_url = 'https://www.leopalace21.com/?gclid=Cj0KCQjwwO20BhCJARIsAAnTIVRITxjwEXlDOS8jtQ0d2-VIU5YgviNOinws8ku_ihR7Em2me3V6QXUaArXTEALw_wcB&gclsrc=aw.ds&utm_campaign=JP_B_Nationwide_EM&utm_content=Brand&utm_creative=599913097571&utm_medium=cpc&utm_source=google&utm_term=%E3%83%AC%E3%82%AA%E3%83%91%E3%83%AC%E3%82%B9'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[10])  # 新しいタブに切り替え
+    driver.get(leopalace_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+finally:
+    # ブラウザを閉じる
+    driver.quit()
+
+# 2024/07/21朝の用意ツール
