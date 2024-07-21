@@ -1,0 +1,34 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+import time
+
+# ChromeDriverの設定
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+
+try:
+    # ① Googleドキュメントに自動でアクセス
+    google_docs_url = 'https://docs.google.com/document/d/1dS2hC6riGf-Q8RztqdCssLk7ibVRtcHkSHI0WkI2Sdo/edit'
+    driver.get(google_docs_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ② Googleマップに自動でアクセス（新しいタブで開く）
+    google_maps_url = 'https://www.google.com/maps?authuser=0'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[1])  # 新しいタブに切り替え
+    driver.get(google_maps_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+    # ③ GitHubにアクセス（さらに新しいタブで開く）
+    github_url = 'https://github.com/'
+    driver.execute_script("window.open('');")  # 新しいタブを開く
+    driver.switch_to.window(driver.window_handles[2])  # 新しいタブに切り替え
+    driver.get(github_url)
+    time.sleep(5)  # 5秒待機してページの読み込みを待つ
+
+finally:
+    # ブラウザを閉じる
+    driver.quit()
+
+# 2024/07/21朝の用意ツール1Google検索２Googleマップ３GitHubに自動遷移
